@@ -43,7 +43,7 @@ for (jj in 1:length(chrs)){
 		x$matrix <- cor(x$matrix)
 		x
 	})
-	
+
 	# Common genome support for both cell types:
 	gr <- contact:::intersect.granges(cons)
 	cons <- lapply(cons, subsetByOverlaps, gr)
@@ -52,9 +52,9 @@ for (jj in 1:length(chrs)){
 	pcs <- lapply(cons, getFirstPC)
 	pcs <- lapply(pcs, meanSmoother, iter=2)
 	pcs <- do.call(cbind, pcs)
-	if (cor(pcs)[1,2] < 0){
-		pcs[,2] <-  -pcs[,2]
-	}
+	#if (cor(pcs)[1,2] < 0){
+	#		pcs[,2] <-  -pcs[,2]
+	#}
 
 	# What is closed? What is open? 
 	gcfile <- paste0("gc_40kb_", chr, ".rda")
@@ -76,13 +76,14 @@ for (jj in 1:length(chrs)){
 	sign <- sign(pc)
 	domain <- ifelse(sign==1, "closed", "open")
 	df1 <- data.frame(chr=chr, start=start(gr), end=end(gr), eigen=pc, domain=domain)
+	data1 <- rbind(data1, df1)
 
 	gr <- cons[[1]]$gr
 	pc <- pcs[,2]
 	sign <- sign(pc)
 	domain <- ifelse(sign==1, "closed", "open")
 	df2 <- data.frame(chr=chr, start=start(gr), end=end(gr), eigen=pc, domain=domain)
-
+	data2 <- rbind(data2, df2)
 
 	print(jj)
 }
