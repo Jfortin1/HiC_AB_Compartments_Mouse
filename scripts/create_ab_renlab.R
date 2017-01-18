@@ -88,17 +88,21 @@ for (jj in 1:length(chrs)){
 	print(jj)
 }
 
+output1 <- "../data/hic_compartments_40kb_mESC.txt"
+output2 <- "../data/hic_compartments_40kb_mCortex.txt"
+write.table(data1, row.names=FALSE, col.names=TRUE, quote=FALSE, file=output1)
+write.table(data2, row.names=FALSE, col.names=TRUE, quote=FALSE, file=output2)
 
 
 
 
 
-# Plotting the A/B compartments:
-par(mfrow=c(3,1), mar=c(2,2,2,2))
-ylim=c(-0.1,0.1)
-mybarplot(pcs[,1], ylim=ylim)
-mybarplot(pcs[,2], ylim=ylim) 
-mybarplot(gc_track-median(gc_track), ylim=c(-0.3,0.3))
+# # Plotting the A/B compartments:
+# par(mfrow=c(3,1), mar=c(2,2,2,2))
+# ylim=c(-0.1,0.1)
+# mybarplot(pcs[,1], ylim=ylim)
+# mybarplot(pcs[,2], ylim=ylim) 
+# mybarplot(gc_track-median(gc_track), ylim=c(-0.3,0.3))
 
 
 
