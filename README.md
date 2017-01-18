@@ -50,7 +50,7 @@ The script [visualization.R](https://github.com/Jfortin1/TCGA_AB_Compartments/bl
 
 ## Note about preprocessing
 
-To decide of the sign of the eigenvectors, we used GC content averaged within each bin. We chose the sign of the eigenvectors so that positive values of the eigenvectors (closed domain) correlate negatively with GC content. 
+To decide of the sign of the eigenvectors, we used GC content averaged within each bin. We chose the sign of the eigenvectors so that positive values of the eigenvectors (closed domain) correlate negatively with GC content. GC content for the mouse genome (mm9) were downloaded from [here](http://www.stat.wisc.edu/~keles/Software/multi-reads/preprocessing.html).
 
 ## References
 
